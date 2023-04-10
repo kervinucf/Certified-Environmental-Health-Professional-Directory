@@ -60,7 +60,6 @@ h1 {
 }
 
 
-
 @media (max-width: 768px) {
     body {
         padding: 0;
@@ -271,20 +270,27 @@ input:focus {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0..05);
 }
 
+input[type='text'],
+input[type='number'],
+textarea {
+    font-size: 16px;
+}
+
 .fa-circle-info:hover ~ .disclaimer-popup {
     display: block;
 }
 
-   .loader {
+.loader {
 
-	 height: 10px;
-	 text-align: center;
-	 display: inline-block;
+    height: 10px;
+    text-align: center;
+    display: inline-block;
 }
- svg path, svg rect {
-	 fill: #FF6700;
+
+svg path, svg rect {
+    fill: #FF6700;
 }
 
 svg {
-  height: 10px
+    height: 10px
 }
