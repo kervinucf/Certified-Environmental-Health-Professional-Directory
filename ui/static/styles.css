@@ -26,6 +26,7 @@ header {
     display: flex;
     width: 100%;
     margin: auto;
+    padding-top: 20px;
 }
 
 h1 {
@@ -59,14 +60,11 @@ h1 {
 }
 
 
+
 @media (max-width: 768px) {
     body {
         padding: 0;
         margin: 0;
-    }
-
-    header {
-        padding: 10px;
     }
 
     .header-content {
@@ -91,6 +89,7 @@ h1 {
         padding-top: 30px;
 
     }
+
 }
 
 .search-element {
@@ -274,4 +273,18 @@ input:focus {
 
 .fa-circle-info:hover ~ .disclaimer-popup {
     display: block;
+}
+
+   .loader {
+
+	 height: 10px;
+	 text-align: center;
+	 display: inline-block;
+}
+ svg path, svg rect {
+	 fill: #FF6700;
+}
+
+svg {
+  height: 10px
 }

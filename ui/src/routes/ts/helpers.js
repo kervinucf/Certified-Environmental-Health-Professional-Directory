@@ -1,4 +1,4 @@
-import {get_county} from "./util.js";
+import {get_county, loader} from "./util.js";
 
 let tableData = [];
 
@@ -18,6 +18,8 @@ function createTable() {
     headers.forEach(header => tableHTML += `<th>${header}</th>`);
     tableHTML += "</tr>";
 
+
+
     // Start from the third row by using slice(2) to skip the first two rows
     tableData.slice(2).forEach(row => {
         tableHTML += "<tr>";
@@ -26,9 +28,9 @@ function createTable() {
         tableHTML += `<td>${row.C}</td>`;
         tableHTML += `<td style="font-weight: 500;color: #3b3b3b;">${row.D}</td>`;
         tableHTML += `<td style="color: red;font-weight: bold;">${excelDateToJSDate(row.E)}</td>`; // Change this line to reference the correct column for Expiration Date
-        tableHTML += `<td style="min-width: 120px;">${row.F}</td>`;
-        tableHTML += `<td>${row.G}</td>`;
-        tableHTML += `<td>${row.H}</td>`;
+        tableHTML += `<td style="min-width: 120px;">${loader}</td>`;
+        tableHTML += `<td>${loader}</td>`;
+        tableHTML += `<td>${loader}</td>`;
         tableHTML += "</tr>";
     });
     const listingTable = document.getElementById("listing-table");
@@ -121,7 +123,6 @@ export const filterTable = debounce(async () => {
                 const programArea = row.cells[2].innerText;
                 const county = row.cells[6].innerText; // get county from row
                 const track = row.cells[3].innerText
-                console.log(track)
 
                 let display = false;
 
@@ -159,7 +160,6 @@ function parseGovernmentCSV(data) {
 
     rows.forEach(row => {
         const cells = row.split(",");
-        console.log(cells);
         try {
             const firstName = cells[2].trim().toUpperCase();
             const lastName = cells[3].trim().toUpperCase();
@@ -173,7 +173,6 @@ function parseGovernmentCSV(data) {
                 "city": cells[6].trim().toUpperCase(),
             }
         } catch (e) {
-            console.log(e);
         }
 
 

@@ -1,4 +1,3 @@
-
 <div style="margin-left: 20px;margin-bottom:20px;margin-top:20px;display: flex;grid-template-columns: 1fr 5fr;font-size: .85rem">
     <div style="position: relative">
         <i class="fa-solid fa-circle-info" style="color: #3a3a3a;
@@ -14,5 +13,7 @@
             agency.
         </div>
     </div>
-    <div id="results-count" style="font-weight: 500;"></div>
+    <div id="results-count" style="font-weight: 500;">
+        <span style="font-weight: 500;color: #FF6700">Gathering Florida Licensed CEHPs</span>
+    </div>
 </div>
