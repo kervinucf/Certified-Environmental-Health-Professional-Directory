@@ -141,7 +141,7 @@ export const filterTable = debounce(async () => {
                         (searchText === "" || fullName.includes(searchText) || lastName.includes(searchText) || firstName.includes(searchText)) &&
                         (programFilter === "" || programArea === programFilter) &&
                         (trackFilter === "" || track.includes(trackFilter)) &&
-                        (countyFilter === "" || county === countyFilter) // compare selected county to row county
+                        (countyFilter === "" || county.toUpperCase() === countyFilter) // compare selected county to row county
                     ) {
                         display = true;
                     }
