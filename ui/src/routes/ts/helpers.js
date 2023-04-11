@@ -21,8 +21,6 @@ function createTable() {
 
     // Start from the third row by using slice(2) to skip the first two rows
     tableData.slice(2).forEach(row => {
-        console.log(row)
-
         const labelElement = document.createElement("span");
 
         let track;

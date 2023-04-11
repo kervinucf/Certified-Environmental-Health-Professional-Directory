@@ -13,12 +13,12 @@
 </script>
 
 
-<div id="search-container" style=" overflow: hidden;
+<div id="search-container" style=" overflow: hidden;text-shadow: 1px 1px 0 rgba(0, 0, 0);
   position: relative;">
     <div class="header-content" style="display: flex;flex-direction: column;letter-spacing: .05rem">
         <img
                 class="demo-bg"
-                style="opacity: 0.16;
+                style="opacity: 0.12;
   position: absolute;
   left: 0;
   top: 0;
@@ -29,17 +29,27 @@
                 src="./search-bg-image.jpeg"
                 alt=""
         >
-        <h1 style="z-index: 1;
-position: relative;">State of Florida <br/>Certified Environmental Health Professionals</h1>
+        <h1 style="z-index: 1;text-shadow: 0 0 10px #000000;
+position: relative;"><span style="color: #ececec;">State of Florida Certified</span> <br
+                class="large-screen-break"/><span
+                style="color: #ececec">Environmental Health Professionals</span></h1>
         <div class="header-text">
-            The Department of Health maintains a list of all active Certified Environmental Health Professionals: <a
+            The Department of Health maintains a list of all active Certified <br class="large-screen-break"/>
+            Environmental Health Professionals. <a
                 style="color: yellow;text-decoration: none;cursor: pointer"
-                href="https://www.floridahealth.gov/licensing-and-regulation/certified-environmental-health-professional/index.html">Click
-            here to learn more</a>
+                href="https://www.floridahealth.gov/licensing-and-regulation/certified-environmental-health-professional/index.html">Last
+            Updated April 5, 2023</a>
+        </div>
+        <div class="header-text">
+            For licensing info, certification resources and prep from the <br class="large-screen-break"/> Department of
+            Environmental Protection <a
+                style="color: yellow;text-decoration: none;cursor: pointer"
+                href="https://floridadep.gov/water/onsite-sewage/content/accelerated-certification-training-act">click
+            here</a>
         </div>
         <div class="header-text" style="font-size: 14px">
             <i class="fas fa-envelope" style="color: #f5f5f5;"/> <span
-                style="color: #f5f5f5;font-weight: 200;margin-left: 5px">Email me: </span>
+                style="color: white;font-weight: 200;margin-left: 5px">Email me: </span>
             <span style="color: #00ffd9;cursor: text">
             FloridaCEHP@gmail.com
         </span>
@@ -48,7 +58,7 @@ position: relative;">State of Florida <br/>Certified Environmental Health Profes
     <div class="search-elements" style="z-index: 1;
 position: relative;">
         <div class="search-element">
-            <div style="font-size: .85rem;margin-bottom: 8px;font-weight: 500;color: #d2d2d2;">
+            <div class="search-desc">
                 Search by Name:
             </div>
             <div class="input-wrapper">
@@ -58,7 +68,7 @@ position: relative;">
         </div>
 
         <div class="search-element">
-            <div style="font-size: .85rem;margin-bottom: 8px;font-weight: 500;color: #d2d2d2">
+            <div class="search-desc">
                 Filter by Program:
             </div>
             <select id="program-select">
@@ -69,7 +79,7 @@ position: relative;">
             </select>
         </div>
         <div class="search-element">
-            <div style="font-size: .85rem;margin-bottom: 8px;font-weight: 500;color: #d2d2d2">
+            <div class="search-desc">
                 Filter by County:
             </div>
             <select id="county-select">
@@ -146,7 +156,7 @@ position: relative;">
             </select>
         </div>
         <div class="search-element">
-            <div style="font-size: .85rem;margin-bottom: 8px;font-weight: 500;color: #d2d2d2">
+            <div class="search-desc">
                 Filter by Agency:
             </div>
             <select id="track-select">
@@ -169,17 +179,25 @@ position: relative;">
 
 
 <style>
+    .search-desc {
+        font-size: .85rem;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: #ececec;
+    }
+
     .header-text {
         font-weight: 400;
-        line-height: 1.5rem;
+        line-height: 1.65rem;
         z-index: 1;
         position: relative;
-        max-width: 90%;
-        color: #d2d2d2;
+        color: white;
         margin-top: 1rem;
+
     }
 
     select {
         text-indent: 10px;
+
     }
 </style>
