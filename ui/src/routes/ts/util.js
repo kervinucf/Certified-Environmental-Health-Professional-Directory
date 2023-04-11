@@ -202,7 +202,12 @@ const city_dict = {
 
 export const get_county = (abv) => {
     try {
-        return city_dict[abv][2]
+       if (city_dict[abv][2] != "Unknown") {
+           return city_dict[abv][2]
+       }
+       else {
+              return ""
+       }
     } catch {
         return ""
 
