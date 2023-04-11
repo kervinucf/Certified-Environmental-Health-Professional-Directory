@@ -31,17 +31,13 @@
         >
         <h1 style="z-index: 1;
 position: relative;">State of Florida <br/>Certified Environmental Health Professionals</h1>
-        <div style="font-weight: 400;line-height: 1.5rem;z-index: 1;
-position: relative;
-    max-width: 90%;
-    color: #d2d2d2;
-    margin-top: 1rem;">
+        <div class="header-text">
             The Department of Health maintains a list of all active Certified Environmental Health Professionals: <a
                 style="color: yellow;text-decoration: none;cursor: pointer"
                 href="https://www.floridahealth.gov/licensing-and-regulation/certified-environmental-health-professional/index.html">Click
             here to learn more</a>
         </div>
-        <div style="margin-top: 10px;font-size: 14px;">
+        <div class="header-text" style="font-size: 14px">
             <i class="fas fa-envelope" style="color: #f5f5f5;"/> <span
                 style="color: #f5f5f5;font-weight: 200;margin-left: 5px">Email me: </span>
             <span style="color: #00ffd9;cursor: text">
@@ -173,6 +169,16 @@ position: relative;">
 
 
 <style>
+    .header-text {
+        font-weight: 400;
+        line-height: 1.5rem;
+        z-index: 1;
+        position: relative;
+        max-width: 90%;
+        color: #d2d2d2;
+        margin-top: 1rem;
+    }
+
     select {
         text-indent: 10px;
     }
