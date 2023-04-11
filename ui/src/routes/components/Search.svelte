@@ -1,4 +1,6 @@
 <script>
+    import {onMount} from "svelte";
+
     function scrollToResults() {
         const resultsElement = document.getElementById('results-component');
         const elementPosition = resultsElement.getBoundingClientRect().top + window.pageYOffset;
@@ -10,6 +12,20 @@
             behavior: 'smooth'
         });
     }
+
+    onMount(() => {
+        const searchInput = document.getElementById('search-input');
+        const searchIcon = document.querySelector('.search-icon');
+
+        searchInput.addEventListener('focus', () => {
+            searchIcon.classList.add('icon-active');
+        });
+
+        searchInput.addEventListener('blur', () => {
+            searchIcon.classList.remove('icon-active');
+        });
+
+    })
 </script>
 
 
@@ -18,7 +34,7 @@
     <div class="header-content" style="display: flex;flex-direction: column;letter-spacing: .05rem">
         <img
                 class="demo-bg"
-                style="opacity: 0.12;
+                style="opacity: 0.1;
   position: absolute;
   left: 0;
   top: 0;
@@ -29,10 +45,10 @@
                 src="./search-bg-image.jpeg"
                 alt=""
         >
-        <h1 style="z-index: 1;text-shadow: 0 0 10px #000000;
-position: relative;"><span style="color: #ececec;">State of Florida Certified</span> <br
+        <h1 style="z-index: 1;text-shadow: 0 1px 6px #000000;
+position: relative;"><span style="color: #b0ffc7;">State of Florida Certified</span> <br
                 class="large-screen-break"/><span
-                style="color: #ececec">Environmental Health Professionals</span></h1>
+                style="color:  #b0ffc7;">Environmental Health Professionals</span></h1>
         <div class="header-text">
             The Department of Health maintains a list of all active Certified <br class="large-screen-break"/>
             Environmental Health Professionals. <a

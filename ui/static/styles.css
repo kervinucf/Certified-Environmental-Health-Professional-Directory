@@ -219,6 +219,12 @@ input:focus {
     min-width: auto;
     transform: translateY(-50%);
     pointer-events: none;
+    color: #757575;
+    text-shadow:  0 2px 3px rgba(0, 0, 0, 0.3);
+}
+
+.icon-active {
+     color: #295cff;
 }
 
 .search-icon {
