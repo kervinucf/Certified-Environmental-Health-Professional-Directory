@@ -44,7 +44,7 @@ position: relative;
         <div style="margin-top: 10px;font-size: 14px;">
             <i class="fas fa-envelope" style="color: #f5f5f5;"/> <span
                 style="color: #f5f5f5;font-weight: 200;margin-left: 5px">Email me: </span>
-            <span style="color: #00ffd9">
+            <span style="color: #00ffd9;cursor: text">
             FloridaCEHP@gmail.com
         </span>
         </div>
