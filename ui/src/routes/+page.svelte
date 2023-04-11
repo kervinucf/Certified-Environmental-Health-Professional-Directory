@@ -23,15 +23,15 @@
 
 
 <main>
-    <section>
+    <section class="search-component">
         <Search/>
     </section>
 
-    <section>
+    <section id="results-component">
         <ResultCounter/>
     </section>
 
-    <section>
+    <section id="table-results-component">
         <TableResults/>
     </section>
 </main>

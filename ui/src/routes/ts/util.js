@@ -201,7 +201,12 @@ const city_dict = {
 }
 
 export const get_county = (abv) => {
-    return city_dict[abv][2]
+    try {
+        return city_dict[abv][2]
+    } catch {
+        return ""
+
+    }
 }
 
 export const get_city = (abv) => {

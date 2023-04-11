@@ -19,19 +19,38 @@ function createTable() {
     tableHTML += "</tr>";
 
 
-
     // Start from the third row by using slice(2) to skip the first two rows
     tableData.slice(2).forEach(row => {
+        console.log(row)
+
+        const labelElement = document.createElement("span");
+
+        let track;
+
+        if (row.G) {
+            track = row.G;
+        } else {
+            track = "PRIVATE";
+        }
+        labelElement.innerText = track;
+        labelElement.className = `label label-${track.toLowerCase()}`;
+        labelElement.style.marginLeft = "10px";
+
+        if (row.F === '-') {
+            row.F = row.F.replace('-', '')
+        }
         tableHTML += "<tr>";
         tableHTML += `<td style="max-width: 110px;">${row.A}</td>`;
         tableHTML += `<td style="max-width: 110px;">${row.B}</td>`;
-        tableHTML += `<td>${row.C}</td>`;
-        tableHTML += `<td style="font-weight: 500;color: #3b3b3b;">${row.D}</td>`;
-        tableHTML += `<td style="color: red;font-weight: bold;">${excelDateToJSDate(row.E)}</td>`; // Change this line to reference the correct column for Expiration Date
-        tableHTML += `<td style="min-width: 120px;">${loader}</td>`;
-        tableHTML += `<td>${loader}</td>`;
-        tableHTML += `<td>${loader}</td>`;
+        tableHTML += `<td style="min-width: 120px;">${row.C}</td>`;
+        tableHTML += `<td style="min-width: 160px;font-weight: 500;color: #3b3b3b;">${row.D} ${labelElement.outerHTML}</td>`;
+        tableHTML += `<td style="min-width: 120px;color: red;font-weight: bold;">${row.E}</td>`; // Change this line to reference the correct column for Expiration Date
+        tableHTML += `<td style="min-width: 120px;">${row.F}</td>`;
+        tableHTML += `<td style="min-width: 120px;">${get_county(row.I)}</td>`; // Change this line to reference the correct column for County
+        tableHTML += `<td style="min-width: 120px;">${row.H}</td>`;
         tableHTML += "</tr>";
+
+
     });
     const listingTable = document.getElementById("listing-table");
 
@@ -66,7 +85,7 @@ function createVirtualTable(rows) {
 }
 
 async function loadTableData() {
-    const response = await fetch("./data.xlsx");
+    const response = await fetch("./cehp_merged.xlsx");
     const data = await response.arrayBuffer();
     const workbook = XLSX.read(new Uint8Array(data), {type: "array"});
     const sheet = workbook.Sheets[workbook.SheetNames[0]];
@@ -74,15 +93,6 @@ async function loadTableData() {
     createTable();
 
 }
-
-async function loadGovernmentData() {
-    const response = await fetch("./data.csv");
-    const data = await response.text();
-    const governmentWorkers = parseGovernmentCSV(data);
-    updateTableWithEmployer(governmentWorkers);
-
-}
-
 
 function applyVirtualTable(virtualTable) {
     const rows = virtualTable.querySelectorAll("tr");
@@ -154,76 +164,6 @@ export const filterTable = debounce(async () => {
 
 }, 300);
 
-function parseGovernmentCSV(data) {
-    const rows = data.split("\n");
-    const governmentWorkers = {};
-
-    rows.forEach(row => {
-        const cells = row.split(",");
-        try {
-            const firstName = cells[2].trim().toUpperCase();
-            const lastName = cells[3].trim().toUpperCase();
-            governmentWorkers[`${firstName} ${lastName}`] = {
-                "area_code": cells[0].trim().toUpperCase(),
-                "phone": cells[1].trim().toUpperCase(),
-                "firstName": cells[2].trim().toUpperCase(),
-                "lastName": cells[3].trim().toUpperCase(),
-                "agency": cells[4].trim().toUpperCase(),
-                "email": cells[5].trim().toUpperCase(),
-                "city": cells[6].trim().toUpperCase(),
-            }
-        } catch (e) {
-        }
-
-
-    });
-
-    return governmentWorkers;
-}
-
-function updateTableWithEmployer(governmentWorkers) {
-    const rows = document.querySelectorAll("#listing-table tr:not(:first-child)");
-
-    rows.forEach(row => {
-        const lastName = row.cells[0].innerText.replace(", RS", "").toUpperCase();
-        const firstName = row.cells[1].innerText.toUpperCase();
-        const fullName = `${firstName} ${lastName}`;
-
-        const workerData = governmentWorkers[fullName];
-        const labelElement = document.createElement("span");
-
-        let track;
-        if (workerData) {
-            track = workerData['agency'];
-        } else {
-            track = "PRIVATE";
-        }
-        labelElement.innerText = track;
-        labelElement.className = `label label-${track.toLowerCase()}`;
-
-        labelElement.style.marginLeft = "10px";
-
-
-        let phone = "";
-        let county = "";
-        let email = "";
-        let city = "";
-        try {
-            phone = workerData['area_code'] + '-' + workerData['phone'];
-            county = get_county(workerData['city']).toUpperCase();
-            email = workerData['email'];
-            city = workerData['city'];
-        } catch (e) {
-
-        }
-
-        row.cells[3].appendChild(labelElement);
-        row.cells[5].innerText = phone;
-        row.cells[6].innerText = county;
-        row.cells[7].innerText = email;
-    });
-}
-
 export async function loadData() {
-    await Promise.all([loadTableData(), loadGovernmentData()]);
+    await loadTableData()
 }

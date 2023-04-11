@@ -1,3 +1,18 @@
+<script>
+    function scrollToResults() {
+        const resultsElement = document.getElementById('results-component');
+        const elementPosition = resultsElement.getBoundingClientRect().top + window.pageYOffset;
+        const gap = 20; // Adjust this value to change the gap size (in pixels)
+        const scrollToPosition = elementPosition - gap;
+
+        window.scrollTo({
+            top: scrollToPosition,
+            behavior: 'smooth'
+        });
+    }
+</script>
+
+
 <div id="search-container" style=" overflow: hidden;
   position: relative;">
     <div class="header-content" style="display: flex;flex-direction: column;">
@@ -8,15 +23,17 @@
   left: 0;
   top: 0;
   width: 100%;
-  height: auto;"
-                src="https://images.pexels.com/photos/196663/pexels-photo-196663.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+  height: 100%;
+  height: auto;-webkit-mask: linear-gradient(#000, #0000);
+          mask: linear-gradient(#000, #0000);"
+                src="./search-bg-image.jpeg"
                 alt=""
         >
         <h1 style="z-index: 1;
 position: relative;">State of Florida <br/>Certified Environmental Health Professionals</h1>
         <div style="font-weight: 400;line-height: 1.5rem;z-index: 1;
 position: relative;
-    max-width: 80%;
+    max-width: 90%;
     color: #d2d2d2;
     margin-top: 1rem;">
             The Department of Health maintains a list of all active Certified Environmental Health Professionals: <a
@@ -138,5 +155,18 @@ position: relative;">
             </select>
         </div>
 
+        <div class="search-element search-button" style="margin-top: 20px;">
+            <button on:click={() => {scrollToResults()}}>
+                Results
+            </button>
+        </div>
+
     </div>
 </div>
+
+
+<style>
+    select {
+        text-indent: 10px;
+    }
+</style>
