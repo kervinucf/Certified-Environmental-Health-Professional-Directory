@@ -15,7 +15,7 @@
 
 <div id="search-container" style=" overflow: hidden;
   position: relative;">
-    <div class="header-content" style="display: flex;flex-direction: column;">
+    <div class="header-content" style="display: flex;flex-direction: column;letter-spacing: .05rem">
         <img
                 class="demo-bg"
                 style="opacity: 0.16;
@@ -40,6 +40,13 @@ position: relative;
                 style="color: yellow;text-decoration: none;cursor: pointer"
                 href="https://www.floridahealth.gov/licensing-and-regulation/certified-environmental-health-professional/index.html">Click
             here to learn more</a>
+        </div>
+        <div style="margin-top: 10px;font-size: 14px;">
+            <i class="fas fa-envelope" style="color: #f5f5f5;"/> <span
+                style="color: #f5f5f5;font-weight: 200;margin-left: 5px">Email me: </span>
+            <span style="color: #00ffd9">
+            FloridaCEHP@gmail.com
+        </span>
         </div>
     </div>
     <div class="search-elements" style="z-index: 1;
