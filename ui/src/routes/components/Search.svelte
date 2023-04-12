@@ -48,7 +48,7 @@
         <h1 style="z-index: 1;text-shadow: 0 1px 6px #000000;
 position: relative;"><span style="color: #b0ffc7;">State of Florida Certified</span> <br
                 class="large-screen-break"/><span
-                style="color:  #b0ffc7;">Environmental Health Professionals</span></h1>
+                style="color:  rgb(211 255 224)">Environmental Health Professionals</span></h1>
         <div class="header-text">
             The Department of Health maintains a list of all active Certified <br class="large-screen-break"/>
             Environmental Health Professionals. <a
@@ -65,7 +65,7 @@ position: relative;"><span style="color: #b0ffc7;">State of Florida Certified</s
         </div>
         <div class="header-text" style="font-size: 14px">
             <i class="fas fa-envelope" style="color: #f5f5f5;"/> <span
-                style="color: white;font-weight: 200;margin-left: 5px">Email me: </span>
+                style="color: white;font-weight: 200;margin-left: 5px">Contact: </span>
             <span style="color: #00ffd9;cursor: text">
             FloridaCEHP@gmail.com
         </span>
