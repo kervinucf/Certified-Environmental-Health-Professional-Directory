@@ -2,7 +2,7 @@
 
 Live Here: https://superb-peony-a1c93b.netlify.app/
 
-This application is designed to help users access and cross-reference information about active certified environmental health professionals and public Florida state government employee records. By using this application, users can easily find relevant information about certified professionals in the environmental health field and their current status within the state government.
+This application is designed to help contractor or other interested parties access and cross-reference information about active certified environmental health professionals and public Florida state government employee records. By using this application, relevant information about certified professionals in the environmental health field can be easily found to contact the needed inspector.
 
 ## Features
 
@@ -29,6 +29,5 @@ To achieve this, the application performs the following steps:
 3. Combine the matched data to create a unified record for each professional
 4. Display the cross-referenced data in a user-friendly table format
 
-## Conclusion
 
-The Florida Certified Environmental Health Professionals Application is a valuable tool for users looking to access information about certified professionals in the environmental health field and their current employment status within the Florida state government. By cross-referencing data from both active certified professionals and public employee records, the application ensures that users have the most accurate and up-to-date information available.
+
