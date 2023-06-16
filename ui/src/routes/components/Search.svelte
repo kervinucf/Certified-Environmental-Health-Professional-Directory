@@ -54,7 +54,7 @@ position: relative;"><span style="color: #b0ffc7;">State of Florida Certified</s
             Environmental Health Professionals. <a
                 style="color: yellow;text-decoration: none;cursor: pointer"
                 href="https://www.floridahealth.gov/licensing-and-regulation/certified-environmental-health-professional/index.html">Last
-            Updated April 5, 2023</a>
+            Updated May 18, 2023</a>
         </div>
         <div class="header-text">
             For licensing info, certification resources and prep from the <br class="large-screen-break"/> Department of
