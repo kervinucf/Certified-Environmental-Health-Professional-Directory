@@ -6,11 +6,6 @@ def excel_date_to_js_date(serial):
     return str(serial).replace(" 00:00:00", "")
 
 
-def get_county(city):
-    # Add your function to get the county from the city here
-    return "County"
-
-
 # get relative path
 def get_relative_path():
     return os.path.dirname(os.path.realpath(__file__))

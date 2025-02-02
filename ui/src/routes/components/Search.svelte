@@ -1,6 +1,50 @@
 <script>
     import {onMount} from "svelte";
 
+    async function searchDatabase(query) {
+        try {
+            const response = await fetch(`http://127.0.0.1:5000/search?q=${query}`);
+            if (response.ok) {
+                const data = await response.json();
+                updateTable(data);  // Call function to update the table
+                scrollToResults();  // Scroll to the results
+            } else {
+                console.error('Error from server', response);
+            }
+        } catch (error) {
+            console.error('Error fetching data', error);
+        }
+    }
+
+    // Function to update the table with search results
+    function updateTable(data) {
+        const table = document.getElementById('listing-table');
+        table.innerHTML = ''; // Clear existing table data
+
+        // Create and append the header row
+        const headerRow = document.createElement('tr');
+        ['Address', 'City', 'Zip Code'].forEach(text => {
+            const headerCell = document.createElement('th');
+            headerCell.textContent = text;
+            headerRow.appendChild(headerCell);
+        });
+        table.appendChild(headerRow);
+
+        // Append data rows
+        data.forEach(result => {
+            const row = document.createElement('tr');
+            ['PHY_ADD1', 'PHY_CITY', 'PHY_ZIPCD'].forEach(field => {
+                const cell = document.createElement('td');
+                cell.textContent = result[field] || 'N/A';  // Replace 'N/A' with your preferred placeholder
+                row.appendChild(cell);
+            });
+            table.appendChild(row);
+        });
+    }
+
+    // Existing functions (scrollToResults, onMount)
+
+    // ... existing onMount function ...
     function scrollToResults() {
         const resultsElement = document.getElementById('results-component');
         const elementPosition = resultsElement.getBoundingClientRect().top + window.pageYOffset;
@@ -16,6 +60,13 @@
     onMount(() => {
         const searchInput = document.getElementById('search-input');
         const searchIcon = document.querySelector('.search-icon');
+
+        searchInput.addEventListener('input', (event) => {
+            const query = event.target.value;
+            if (query.length > 2) {  // Adjust as needed for minimum query length
+                searchDatabase(query);  // Call the search function
+            }
+        });
 
         searchInput.addEventListener('focus', () => {
             searchIcon.classList.add('icon-active');
@@ -54,7 +105,7 @@ position: relative;"><span style="color: #b0ffc7;">State of Florida Certified</s
             Environmental Health Professionals. <a
                 style="color: yellow;text-decoration: none;cursor: pointer"
                 href="https://www.floridahealth.gov/licensing-and-regulation/certified-environmental-health-professional/index.html">Last
-            Updated May 18, 2023</a>
+            Updated April 5, 2023</a>
         </div>
         <div class="header-text">
             For licensing info, certification resources and prep from the <br class="large-screen-break"/> Department of
